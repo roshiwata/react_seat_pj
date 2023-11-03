@@ -1,69 +1,30 @@
-import React, { useState } from "react";
-import "./styles.css";
-import { InputTodo } from "./components/InputTodo.jsx";
-import { IncompleteTodos } from "./components/IncompleteTodos.jsx";
-import { CompleteTodos } from "./components/CompleteTodos.jsx";
+// import ReactDOM from "react-dom";
 import { Layer, Rect, Stage } from "react-konva";
+import { Comp } from "./component/comp.jsx";
 
 export const App = () => {
-  const [todoText, settodoText] = useState("");
-  const [incompleteTodos, setincompleteTodos] = useState([]);
+    const onClickButton = () => {
+        alert("user1");
+    };
+    return (
+        <>
+            <div>
+                <h1>こんちゃす</h1>
+                <p>お元気か</p>
+                <button onClick={onClickButton}>ボタン</button>
+            </div>
 
-  const [completeTodos, setCompleteTodos] = useState([]);
+            <Stage width={500} height={500}>
+                <Layer>
+                    <Rect stroke='black' strokeWidth={4} x={5} y={5} width={490} height={490} />
+                    <Rect fill='red' x={100} y={100} width={300} height={200} />
+                </Layer>
+            </Stage>
 
-  const onChangeTodoText = (event) => settodoText(event.target.value);
+            <Comp/>
 
-  const onClickAdd = () => {
-    if (todoText === "") return;
-    const newTodos = [...incompleteTodos, todoText];
-    setincompleteTodos(newTodos);
-    settodoText("");
-  };
-
-  const onClickDelete = (index) => {
-    const newTodos = [...incompleteTodos];
-    newTodos.splice(index, 1);
-    setincompleteTodos(newTodos);
-  };
-
-  const onClickComplete = (index) => {
-    const newIncompleteTodos = [...incompleteTodos];
-    newIncompleteTodos.splice(index, 1);
-    const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
-    setincompleteTodos(newIncompleteTodos);
-    setCompleteTodos(newCompleteTodos);
-  };
-
-  const onClickBack = (index) => {
-    const newCompleteTodos = [...completeTodos];
-    newCompleteTodos.splice(index, 1);
-    const newIncompleteTodos = [...incompleteTodos, completeTodos[index]];
-    setincompleteTodos(newIncompleteTodos);
-    setCompleteTodos(newCompleteTodos);
-  };
-
-  return (
-    <>
-      <InputTodo
-        todoText={todoText}
-        onChange={onChangeTodoText}
-        onClick={onClickAdd}
-      />
-
-      {/* {incompleteTodos.length >= 5 && (
-        <p style={{ color: "red" }}>
-          {" "}
-          登録できるtodo5個までです。消化してください{" "}
-        </p>
-      )} */}
-
-      <IncompleteTodos
-        todos={incompleteTodos}
-        onClickComplete={onClickComplete}
-        onClickDelete={onClickDelete}
-      />
-
-      <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
-    </>
-  );
+        </>
+    );
 };
+
+// ReactDOM.render(<App />, document.getElementById("root"));
