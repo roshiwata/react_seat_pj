@@ -3,6 +3,7 @@ import "./styles.css";
 import { InputTodo } from "./components/InputTodo.jsx";
 import { IncompleteTodos } from "./components/IncompleteTodos.jsx";
 import { CompleteTodos } from "./components/CompleteTodos.jsx";
+import { Layer, Rect, Stage } from "react-konva";
 
 export const App = () => {
   const [todoText, settodoText] = useState("");
