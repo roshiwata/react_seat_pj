@@ -1,11 +1,22 @@
-// import ReactDOM from "react-dom";
 import { Layer, Rect, Stage } from "react-konva";
 import { Comp } from "./component/comp.jsx";
+import { InputConditions } from "./component/InputConditions.jsx";
+import React, { useState } from "react";
+import "./styles.css";
+import { SelectCheckBox } from "./component/SelectCheckBox.jsx";
 
 export const App = () => {
     const onClickButton = () => {
         alert("user1");
     };
+
+    const [todoText, settodoText] = useState("");
+    const onChangeTodoText = (event) => settodoText(event.target.value);
+
+    const onClickAdd = () => {
+        settodoText("TTT");
+      };
+
     return (
         <>
             <div>
@@ -23,8 +34,15 @@ export const App = () => {
 
             <Comp/>
 
+            <InputConditions
+                todoText={todoText}
+                onChange={onChangeTodoText}
+                onClick={onClickAdd}
+            />
+
+            <SelectCheckBox/>
+
         </>
     );
 };
 
-// ReactDOM.render(<App />, document.getElementById("root"));
