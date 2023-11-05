@@ -4,6 +4,8 @@ import { InputConditions } from "./component/InputConditions.jsx";
 import React, { useState } from "react";
 import "./styles.css";
 import { SelectCheckBox } from "./component/SelectCheckBox.jsx";
+import { InputUser } from "./component/InputUser.jsx";
+
 
 export const App = () => {
     const onClickButton = () => {
@@ -19,6 +21,7 @@ export const App = () => {
 
     return (
         <>
+            <InputUser/>
             <SelectCheckBox/>
 
             <InputConditions
@@ -41,6 +44,8 @@ export const App = () => {
             </Stage>
 
             <Comp/>
+
+            
 
 
 
