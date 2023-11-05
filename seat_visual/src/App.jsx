@@ -19,11 +19,19 @@ export const App = () => {
 
     return (
         <>
-            <div>
+            <SelectCheckBox/>
+
+            <InputConditions
+                todoText={todoText}
+                onChange={onChangeTodoText}
+                onClick={onClickAdd}
+            />
+
+            {/* <div>
                 <h1>こんちゃす</h1>
                 <p>お元気か</p>
                 <button onClick={onClickButton}>ボタン</button>
-            </div>
+            </div> */}
 
             <Stage width={500} height={500}>
                 <Layer>
@@ -34,13 +42,9 @@ export const App = () => {
 
             <Comp/>
 
-            <InputConditions
-                todoText={todoText}
-                onChange={onChangeTodoText}
-                onClick={onClickAdd}
-            />
 
-            <SelectCheckBox/>
+
+            
 
         </>
     );
