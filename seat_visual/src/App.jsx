@@ -13,22 +13,39 @@ export const App = () => {
     };
 
     const [todoText, settodoText] = useState("");
+    const [recomText, setrecomText] = useState("");
     const onChangeTodoText = (event) => settodoText(event.target.value);
 
     const onClickAdd = () => {
-        settodoText("TTT");
+        setrecomText("あなたにオススメの席はこちらです！");
       };
+    const onClickInit = () => {
+        setrecomText("");
+    };
 
     return (
         <>
-            <InputUser/>
-            <SelectCheckBox/>
 
-            <InputConditions
+            <p>
+                フリースペース座席レコメンドサービス
+            </p>
+
+            <InputUser/>
+            <SelectCheckBox
+                recomText={recomText}
+                onClick={onClickAdd}
+                onClickInit={onClickInit}
+            />
+
+            <p>
+                {recomText}
+            </p>
+
+            {/* <InputConditions
                 todoText={todoText}
                 onChange={onChangeTodoText}
                 onClick={onClickAdd}
-            />
+            /> */}
 
             {/* <div>
                 <h1>こんちゃす</h1>

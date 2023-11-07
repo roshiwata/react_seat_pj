@@ -9,7 +9,8 @@ const style = {
   margin: "8px"
 };
 
-export const SelectCheckBox = () => {
+export const SelectCheckBox = (props) => {
+  const { recomText, onClick, onClickInit } = props;
   const [checkedValues, setCheckedValues] = useState([]);
   const [otherText, setOtherText] = useState("");
 
@@ -76,6 +77,9 @@ export const SelectCheckBox = () => {
           />
         </div>
       )}
+      <br/>
+      <button onClick={onClick}>追加</button>
+      <button onClick={onClickInit}>初期化</button>
     </div>
   );
 };
