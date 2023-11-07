@@ -11,21 +11,21 @@ const style = {
 
 export const SelectCheckBox = () => {
   const [checkedValues, setCheckedValues] = useState([]);
+  const [otherText, setOtherText] = useState("");
 
   const handleChange = (e) => {
-    if (checkedValues.includes(e.target.value)) {
-      setCheckedValues(
-        checkedValues.filter((checkedValue) => checkedValue !== e.target.value)
-      );
-    } else {
-      setCheckedValues([...checkedValues, e.target.value]);
+    setCheckedValues(e.target.value);
+    if (e.target.value !== "その他") {
+      setOtherText("");
     }
   };
-
+  const handleOtherTextChange = (e) => {
+    setOtherText(e.target.value);
+  };
   return (
     <div style={style} className="input-area">
       <p>
-        今日はどのような席に座りたいですか？：<b>{checkedValues.join("、")}</b>
+        今日はどのような席に座りたいですか？：
       </p>
       <label>
         <input
@@ -56,6 +56,26 @@ export const SelectCheckBox = () => {
         />
         今まで関わりのなかった人の近くに座りたい
       </label>
+      <br/>
+      <label>
+        <input
+          type="checkbox"
+          value="その他"
+          onChange={handleChange}
+          checked={checkedValues.includes("その他")}
+        />
+        その他
+      </label>
+      {checkedValues === "その他" && (
+        <div>
+          <label>その他の希望を入力してください：</label>
+          <input
+            type="text"
+            value={otherText}
+            onChange={handleOtherTextChange}
+          />
+        </div>
+      )}
     </div>
   );
 };
