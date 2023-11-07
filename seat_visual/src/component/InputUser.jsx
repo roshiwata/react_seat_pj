@@ -1,21 +1,37 @@
 import React, { useState } from "react";
 import Select from 'react-select';
+import logoImage from './test.png';
 
 const options = [
-  { value: 'pikachu', label: 'ピカチュウ' },
-  { value: 'bulbasaur', label: 'フシギダネ' },
-  { value: 'charmander', label: 'ヒトカゲ' },
-  { value: 'squirtle', label: 'ゼニガメ' },
+  { value: 'PCO', label: (
+    <div>
+      <img src={logoImage} alt="PCO Avatar" width="30" height="30" />
+      PCO
+    </div>
+    ) 
+    },
+  { value: 'PC', label: (
+    <div>
+      <img src={logoImage} alt="PC Avatar" width="30" height="30" />
+      PC
+    </div>
+    ) 
+    },
+  { value: 'PAS', label: (
+    <div>
+      <img src={logoImage} alt="PAS Avatar" width="30" height="30" />
+      PAS
+    </div>
+    ) 
+    },
 ]
 
 export const InputUser = () => {
 
   return (
-    <Select options={options} />
-    // <div>
-    //   <h1>こんちゃす</h1>
-    //   <p>お元気か</p>
-    // </div>
-
+    <div>
+      {/* <img src={logoImage} alt="Your Logo" /> */}
+      <Select options={options} />
+    </div>
   );
 };
