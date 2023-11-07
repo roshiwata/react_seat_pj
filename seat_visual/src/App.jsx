@@ -41,18 +41,6 @@ export const App = () => {
                 {recomText}
             </p>
 
-            {/* <InputConditions
-                todoText={todoText}
-                onChange={onChangeTodoText}
-                onClick={onClickAdd}
-            /> */}
-
-            {/* <div>
-                <h1>こんちゃす</h1>
-                <p>お元気か</p>
-                <button onClick={onClickButton}>ボタン</button>
-            </div> */}
-
             <Stage width={500} height={500}>
                 <Layer>
                     <Rect stroke='black' strokeWidth={4} x={5} y={5} width={490} height={490} />
@@ -61,12 +49,6 @@ export const App = () => {
             </Stage>
 
             <Comp/>
-
-            
-
-
-
-            
 
         </>
     );
